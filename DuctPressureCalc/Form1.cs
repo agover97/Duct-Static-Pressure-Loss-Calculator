@@ -946,7 +946,7 @@ namespace DuctPressureCalc
                 Console.WriteLine(delRow);
                 for (int i = delRow; i < endRow + 2; i++)
                 {
-                    for (int j = 1; j < 22; j++)
+                    for (int j = 1; j < 23; j++)
                     {
                         dataGridView1.Rows[i].Cells[j].Value = dataGridView1.Rows[i + 1].Cells[j].Value;
                         dataGridView1.Rows[i].Cells[j].Style.BackColor = dataGridView1.Rows[i + 1].Cells[j].Style.BackColor;
@@ -977,25 +977,33 @@ namespace DuctPressureCalc
 
         private void button3_Click(object sender, EventArgs e)
         {
-
-            if(ductRun == 0)
+            
+            if (ductRun == 0)
             {
                 numberOfRows = 2;
-                numberOfCols = 22;
+                numberOfCols = 23;
                 inputArray = new double[numberOfRows - 1, numberOfCols];
             }
 
             if (fitRun == 0)
             {
                 numRowIn2 = 2;
-                numColIn2 = 22;
+                numColIn2 = 23;
                 inputArray2 = new string[numRowIn2 - 1, numColIn2];
             }
 
             numberOfRows -= 1;
-            string[,] outputArray = new string[numberOfRows+2, 22];
-            dataGridView1.ColumnCount = 22;
+            string[,] outputArray = new string[numberOfRows+2, 23];
+            dataGridView1.ColumnCount = 23;
             dataGridView1.RowCount = numberOfRows+numRowIn2+4;
+
+            for (int i = 1; i < numberOfRows + numRowIn2 - 2; i++)
+            {
+                for (int j = 1; j < 23; j++)
+                {
+                    dataGridView1.Rows[i].Cells[j].Value = "";
+                }
+            }
             outputArray[0, 0] = "Identifier";
             outputArray[0, 1] = "Duct Element";
             outputArray[0, 2] = "Description";
@@ -1018,7 +1026,8 @@ namespace DuctPressureCalc
             outputArray[0, 19] = "Friction Factor(fd)";
             outputArray[0, 20] = "Pressure Loss(in. of H20/100')";
             outputArray[0, 21] = "Total Pressure Loss(in. of H20)";
-            
+            outputArray[0, 22] = "Error Message";
+
 
 
 
@@ -1206,17 +1215,137 @@ namespace DuctPressureCalc
             dataGridView1.Rows[numberOfRows + numRowIn2 - 2].Cells[20].Value = "Total Loss:";
 
 
+            dataGridView1.Rows[0].Cells[22].Value = "Error Message";
+            for (int i = 1; i < numberOfRows + numRowIn2 - 2; i++)
+            {
+               
 
-            /*   for (int i = 0; i <= 22; i++)
-               {
+                if (dataGridView1.Rows[i].Cells[9].Value.ToString() == "SR5-13") 
+                {
+                    if (inputArray2[i - numberOfRows, 22] == "0")
+                    {
+                        dataGridView1.Rows[i].Cells[22].Value = "Input Tap Height is Zero";
+                    }
+                    if (inputArray2[i - numberOfRows, 24] == "0")
+                    {
+                        dataGridView1.Rows[i].Cells[22].Value = "Input Tap Hs is Zero";
+                    }
+                    if (inputArray2[i - numberOfRows, 23] == "0")
+                    {
+                        dataGridView1.Rows[i].Cells[22].Value = "Input Tap Width is Zero";
+                    }
+                    if (inputArray2[i - numberOfRows, 25] == "0")
+                    {
+                        dataGridView1.Rows[i].Cells[22].Value = "Input Tap Ws is Zero";
+                    }
+                    if (inputArray2[i - numberOfRows, 28] == "0")
+                    {
+                        dataGridView1.Rows[i].Cells[22].Value = "Input Tap Flow Qc is Zero";
+                    }
 
-                   Console.WriteLine("Console.WriteLine(\"dataGridView1.Rows[\"+i+\"].Cells[" + i + "].Value = \"\";\");");
-               }*/
+                }
+                if (dataGridView1.Rows[i].Cells[9].Value.ToString() == "SR5-11")
+                {
+                    if (inputArray2[i - numberOfRows, 22] == "0")
+                    {
+                        dataGridView1.Rows[i].Cells[22].Value = "Input Tap Height is Zero";
+                    }
+                    if (inputArray2[i - numberOfRows, 24] == "0")
+                    {
+                        dataGridView1.Rows[i].Cells[22].Value = "Input Tap Hs is Zero";
+                    }
+                    if (inputArray2[i - numberOfRows, 23] == "0")
+                    {
+                        dataGridView1.Rows[i].Cells[22].Value = "Input Tap Width is Zero";
+                    }
+                    if (inputArray2[i - numberOfRows, 25] == "0")
+                    {
+                        dataGridView1.Rows[i].Cells[22].Value = "Input Tap Ws is Zero";
+                    }
+                    if (inputArray2[i - numberOfRows, 28] == "0")
+                    {
+                        dataGridView1.Rows[i].Cells[22].Value = "Input Tap Flow Qc is Zero";
+                    }
+
+                }
+                if (dataGridView1.Rows[i].Cells[9].Value.ToString() == "SR5-12")
+                {
+                    if (inputArray2[i - numberOfRows, 22] == "0")
+                    {
+                        dataGridView1.Rows[i].Cells[22].Value = "Input Tap Height is Zero";
+                    }
+                    if (inputArray2[i - numberOfRows, 24] == "0")
+                    {
+                        dataGridView1.Rows[i].Cells[22].Value = "Input Tap Hs is Zero";
+                    }
+                    if (inputArray2[i - numberOfRows, 23] == "0")
+                    {
+                        dataGridView1.Rows[i].Cells[22].Value = "Input Tap Width is Zero";
+                    }
+                    if (inputArray2[i - numberOfRows, 25] == "0")
+                    {
+                        dataGridView1.Rows[i].Cells[22].Value = "Input Tap Ws is Zero";
+                    }
+                    if (inputArray2[i - numberOfRows, 28] == "0")
+                    {
+                        dataGridView1.Rows[i].Cells[22].Value = "Input Tap Flow Qc is Zero";
+                    }
+
+                }
+                if (dataGridView1.Rows[i].Cells[9].Value.ToString() == "SD5-9")
+                {
+                    if (inputArray2[i - numberOfRows, 19] == "0")
+                    {
+                        dataGridView1.Rows[i].Cells[22].Value = "Input Tap Dc is Zero";
+                    }
+                    if (inputArray2[i - numberOfRows, 20] == "0")
+                    {
+                        dataGridView1.Rows[i].Cells[22].Value = "Input Tap Ds is Zero";
+                    }
+                    if (inputArray2[i - numberOfRows, 28] == "0")
+                    {
+                        dataGridView1.Rows[i].Cells[22].Value = "Input Tap Flow Qc is Zero";
+                    }
+                   
+                    
+
+                }
+                if (dataGridView1.Rows[i].Cells[9].Value.ToString() == "SD5-10")
+                {
+                    if (inputArray2[i - numberOfRows, 19] == "0")
+                    {
+                        dataGridView1.Rows[i].Cells[22].Value = "Input Tap Dc is Zero";
+                    }
+                    if (inputArray2[i - numberOfRows, 20] == "0")
+                    {
+                        dataGridView1.Rows[i].Cells[22].Value = "Input Tap Ds is Zero";
+                    }
+                    if (inputArray2[i - numberOfRows, 28] == "0")
+                    {
+                        dataGridView1.Rows[i].Cells[22].Value = "Input Tap Flow Qc is Zero";
+                    }
 
 
-            //Convert results to strings
-            //int[] intarray = { 1, 2, 3, 4, 5 };
-            //string[] result = intarray.Select(x=>x.ToString()).ToArray();
+
+                }
+                if (dataGridView1.Rows[i].Cells[9].Value.ToString() == "SD5-18")
+                {
+                    //if (inputArray2[i - numberOfRows, 34] == "0")
+                    {
+                        dataGridView1.Rows[i].Cells[22].Value = "Input Tee Flow Qb1 is Zero";
+                    }
+                }
+
+                }
+            /*for (int i = 3; i < 7; i++)
+            {
+                Console.WriteLine("i" + inputArray2[i, 22]);
+            }*/
+            
+
+
+           
+            
         }
 
         /*
