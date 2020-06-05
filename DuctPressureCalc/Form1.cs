@@ -1208,7 +1208,11 @@ namespace DuctPressureCalc
             endRow = numberOfRows + numRowIn2 - 2;
             for (int i =1; i< numberOfRows + numRowIn2 - 2; i++)
             {
-                totalLoss += Convert.ToDouble(dataGridView1.Rows[i].Cells[21].Value);
+                if (Convert.ToDouble(dataGridView1.Rows[i].Cells[21].Value) >= 0 )
+                {
+                    totalLoss += Convert.ToDouble(dataGridView1.Rows[i].Cells[21].Value);
+                }
+                
             }
 
             dataGridView1.Rows[numberOfRows + numRowIn2 - 2].Cells[21].Value = totalLoss;
@@ -1330,13 +1334,20 @@ namespace DuctPressureCalc
                 }
                 if (dataGridView1.Rows[i].Cells[9].Value.ToString() == "SD5-18")
                 {
-                    //if (inputArray2[i - numberOfRows, 34] == "0")
+                    if (inputArray2[i - numberOfRows, 34] == "0")
                     {
                         dataGridView1.Rows[i].Cells[22].Value = "Input Tee Flow Qb1 is Zero";
                     }
                 }
-
+                if (dataGridView1.Rows[i].Cells[9].Value.ToString() == "WYE NOT SYMMETRICAL")
+                {
+                    if (inputArray2[i - numberOfRows, 34] == "0")
+                    {
+                        dataGridView1.Rows[i].Cells[22].Value = "WYE NOT SYMMETRICAL";
+                    }
                 }
+
+            }
             /*for (int i = 3; i < 7; i++)
             {
                 Console.WriteLine("i" + inputArray2[i, 22]);
