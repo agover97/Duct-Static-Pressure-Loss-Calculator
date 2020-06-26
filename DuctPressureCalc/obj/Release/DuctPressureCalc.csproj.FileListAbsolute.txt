@@ -1,0 +1,12 @@
+C:\Users\adamg\Desktop\DuctPressureCalc\DuctPressureCalc\bin\Release\DuctPressureCalc.exe.config
+C:\Users\adamg\Desktop\DuctPressureCalc\DuctPressureCalc\bin\Release\DuctPressureCalc.exe
+C:\Users\adamg\Desktop\DuctPressureCalc\DuctPressureCalc\bin\Release\DuctPressureCalc.pdb
+C:\Users\adamg\Desktop\DuctPressureCalc\DuctPressureCalc\obj\Release\DuctPressureCalc.csprojAssemblyReference.cache
+C:\Users\adamg\Desktop\DuctPressureCalc\DuctPressureCalc\obj\Release\DuctPressureCalc.csproj.ResolveComReference.cache
+C:\Users\adamg\Desktop\DuctPressureCalc\DuctPressureCalc\obj\Release\DuctPressureCalc.Form1.resources
+C:\Users\adamg\Desktop\DuctPressureCalc\DuctPressureCalc\obj\Release\DuctPressureCalc.Form2.resources
+C:\Users\adamg\Desktop\DuctPressureCalc\DuctPressureCalc\obj\Release\DuctPressureCalc.Form3.resources
+C:\Users\adamg\Desktop\DuctPressureCalc\DuctPressureCalc\obj\Release\DuctPressureCalc.Properties.Resources.resources
+C:\Users\adamg\Desktop\DuctPressureCalc\DuctPressureCalc\obj\Release\DuctPressureCalc.csproj.GenerateResource.cache
+C:\Users\adamg\Desktop\DuctPressureCalc\DuctPressureCalc\obj\Release\DuctPressureCalc.exe
+C:\Users\adamg\Desktop\DuctPressureCalc\DuctPressureCalc\obj\Release\DuctPressureCalc.pdb

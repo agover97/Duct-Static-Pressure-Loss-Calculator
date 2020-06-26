@@ -1702,7 +1702,7 @@ namespace DuctPressureCalc
                     //Using Table Cs
                     x_axis_1 = (Qc-Qb) / Qc;
                     y_axis_1 = (Hs * Ws) / (H * W);
-                    Cs = interpolateData(x_axis, y_axis, "SR5_13_Cs");
+                    Cs = interpolateData(x_axis_1, y_axis_1, "SR5_13_Cs");
 
                     //Evaluate C0 according to the branch factor
                     if (Cb == 0 && Cs == 0)
